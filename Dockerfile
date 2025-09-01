@@ -1,15 +1,22 @@
-# 1) Base image
+# 1. Base Image
+FROM python:3.10-slim
 
-# 2) Prevent .pyc files and enable unbuffered logs
+# 2. Environment setup
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
+# 3. Working directory
+WORKDIR /app
 
-# 3) Create work directory
+# 4. Copy files
+COPY requirements.txt /app/
+COPY app.py /app/
 
+# 5. Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# 4) Install dependencies first (better caching)
+# 6. Expose port
+EXPOSE 5000
 
-# 5) Copy app source
-
-
-# 6) Expose port and run
-
+# 7. Run the app
+CMD ["python", "app.py"]
