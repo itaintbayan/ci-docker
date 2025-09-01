@@ -2,9 +2,9 @@ name: Docker pipeline
 
 on:
   push:
-    branches: add-ci-docker
+    branches: add-ci-docker,main
   pull_request:
-    branches: add-ci-docker
+    branches: add-ci-docker,main
 
 jobs:
   test:
