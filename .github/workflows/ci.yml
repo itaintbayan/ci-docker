@@ -1,10 +1,10 @@
-name: Docker pipeline
+name: CI - Test, Coverage, Docker Build & Run
 
 on:
   push:
-    branches: add-ci-docker,main
+    branches: [ main ]
   pull_request:
-    branches: add-ci-docker,main
+    branches: [ main ]
 
 jobs:
   test:
@@ -67,8 +67,7 @@ jobs:
         run: docker logs flask-ci-docker-container
 
       - name: Stop and remove container
-        run: |git add .
-
+        run: |
           docker stop flask-ci-docker-container
           docker rm flask-ci-docker-container
 
