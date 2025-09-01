@@ -67,7 +67,8 @@ jobs:
         run: docker logs flask-ci-docker-container
 
       - name: Stop and remove container
-        run: |
+        run: |git add .
+
           docker stop flask-ci-docker-container
           docker rm flask-ci-docker-container
 
